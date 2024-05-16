@@ -15,7 +15,8 @@ import AdbIcon from "@mui/icons-material/Adb";
 import Link from "next/link";
 import HeaderSettings from './HeaderSettings';
 import HeaderNav from './HeaderNav';
-
+import logo from '@/public/logo.png'
+import Image from 'next/image';
 const pages = [{description:'/about',name:'درباره ما'}, {description:'/contact',name:'تماس با ما'}, {description:"blog",name:'وبلاگ'},{description:'/Register',name:'ورود/ثبت نام '}];
 
 
@@ -42,8 +43,9 @@ function HeaderCS() {
       transition:' .3s ',
       opacity: scrollPosition > 80 && scrollPosition < 400 ? 0 :1 ,
       transform:scrollPosition > 80 && scrollPosition < 400 ? 'translateY(-5rem)' :'translateY(0)' ,
-      background:'#001d3d',
+      background:scrollPosition>300?'#153448':'transparent',
       boxShadow:scrollPosition > 390? 'rgba(0, 0, 0, 0.1) 0px 0px 20px':'none',
+      padding:{xs:'0',md:"1rem 0"}
     };
 
     const handleOpenNavMenu = (event) => {
@@ -60,24 +62,8 @@ function HeaderCS() {
     <AppBar position="fixed"  sx={navStyle}>
     <Container maxWidth="xl">
     
-      <Toolbar disableGutters>
-        <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-        <Typography
-          variant="h6"
-          noWrap
-          sx={{
-            mr: 2,
-            display: { xs: "none", md: "flex" },
-            fontFamily: "monospace",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "inherit",
-            textDecoration: "none",
-          }}
-        >
-          <Link href="/">گل</Link>
-        </Typography>
-
+      <Toolbar disableGutters sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+        <Image className='logo' src={logo} width={32} height={32} />
         <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
           <IconButton
             size="large"
@@ -105,38 +91,26 @@ function HeaderCS() {
             onClose={handleCloseNavMenu}
             sx={{
               display: { xs: "block", md: "none" },
+              top:'4%',
+              left:"0",
+              right:'0',
+              '& .MuiMenu-list':{
+                background:'#153448',
+                minWidth:'25rem',
+              }
             }}
           >
-            <Link href="/about">about</Link>
             {pages.map((page,i) => (
               <MenuItem key={i} onClick={handleCloseNavMenu}>
-               <Link  href={page.description}>{page.name}</Link>
+               <Link className='text-white'  href={page.description}>{page.name}</Link>
 
               </MenuItem>
             ))}
           </Menu>
         </Box>
-        <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-        <Typography
-          variant="h5"
-          noWrap
-          component="a"
-          href="/"
-          sx={{
-            mr: 2,
-            display: { xs: "flex", md: "none" },
-            flexGrow: 1,
-            fontFamily: "monospace",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "inherit",
-            textDecoration: "none",
-          }}
-        >
-          LOGO
-        </Typography>
+        
         <HeaderNav handleCloseNavMenu={handleCloseNavMenu} pages={pages}/>
-        <Box sx={{ flexGrow: 0 }}>
+        <Box sx={{ flexGrow: 0 ,padding:'1rem'}}>
             <HeaderSettings />
         </Box>
       </Toolbar>

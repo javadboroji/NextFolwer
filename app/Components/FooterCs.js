@@ -29,7 +29,7 @@ function FooterCs() {
     },
   ];
   return (
-    <div className="bg-slate-900">
+    <div className="bg-slate-900 py-12">
       <Grid container justifyContent={"center"}>
         <Grid item xs={12} lg={8}>
           <Grid container>
