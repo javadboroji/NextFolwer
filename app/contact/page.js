@@ -31,14 +31,17 @@ function Contact() {
                     id="outlined-required"
                     label="نام"
                     fullWidth
-                    sx={{margin:{lg:'0 1rem 0 0',xs:'1rem 0 0 0'}}}
+                    sx={{margin:{lg:'0 1rem 0 0',xs:'1rem 0 0 0'},  "& .MuiInputBase-formControl":{borderRadius:'16px !important'}}}
                   />
                   <TextField
                     required
                     id="outlined-required"
                     label="نام خانوادگی"
                     fullWidth
-                    sx={{margin:{lg:'0 0 0 1rem',xs:'1rem 0 0 0'}}}
+                    sx={{
+                      margin:{lg:'0 0 0 1rem',xs:'1rem 0 0 0'}, 
+                      "& .MuiInputBase-formControl":{borderRadius:'16px !important'}
+                  }}
                   />
                 </Box>
                 <TextField
@@ -46,16 +49,16 @@ function Contact() {
                   id="outlined-required"
                   label="ایمیل"
                   fullWidth
-                  sx={{my:{lg:'1rem'}}}
+                  sx={{my:{lg:'1rem'},  "& .MuiInputBase-formControl":{borderRadius:'16px !important'}}}
                 />
                 <TextField
                   required
                   id="outlined-required"
                   label="پیام"
                   fullWidth
-                  sx={{my:'1rem'}}
+                  sx={{my:'1rem',  "& .MuiInputBase-formControl":{borderRadius:'16px !important'}}}
                 />
-                <Button variant="outlined" className="px-10 py-3  text-xl font-bold    mb-6 w-1/3">ارسال</Button>
+                <Button variant="outlined" className="px-8 py-6  text-xl font-bold    mb-6 w-1/3">ارسال</Button>
               </Box>
             </Grid>
 
