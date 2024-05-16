@@ -81,14 +81,14 @@ function Register({ setIsRegister }) {
      <Grid item sx={12} lg={6} display={"flex"}>
        <form
            onSubmit={formik.handleSubmit}
-           className="lg:border-r-2 lg:border-b-0 lg:pr-4 pb-4 border-b-2 w-full"
+           className="lg:border-l-2 lg:border-b-0 lg:pl-4 pb-4 border-b-2 w-full"
        >
          <label htmlFor="userName" className="text-white text-1xl">
           نام 
          </label>
 
          <input
-             className="bg-gray-200 mb-3 bg-transparent text-white appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none  focus:border-purple-500"
+             className="bg-gray-200 mb-3 bg-transparent text-white appearance-none border-2 border-gray-200 rounded w-full rounded-lg py-4 px-4 text-gray-700 leading-tight focus:outline-none  focus:border-purple-500"
              id="userName"
              name="userName"
              type="text"
@@ -115,7 +115,7 @@ function Register({ setIsRegister }) {
          </label>
 
          <input
-             className="bg-gray-200 mb-3 bg-transparent appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none text-white focus:border-purple-500"
+             className="bg-gray-200 mb-3 bg-transparent appearance-none border-2 border-gray-200 rounded w-full rounded-lg py-4 px-4 text-gray-700 leading-tight focus:outline-none text-white focus:border-purple-500"
              id="email"
              name="email"
              type="email"
@@ -132,7 +132,7 @@ function Register({ setIsRegister }) {
          </label>
 
          <input
-             className="bg-gray-200 mb-3 bg-transparent appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none text-white  focus:border-purple-500"
+             className="bg-gray-200 mb-3 bg-transparent appearance-none border-2 border-gray-200 rounded w-full rounded-lg py-4 px-4 text-gray-700 leading-tight focus:outline-none text-white  focus:border-purple-500"
              id="password"
              name="password"
              type="text"
@@ -149,7 +149,7 @@ function Register({ setIsRegister }) {
 
          <div className="flex justify-between">
            <button
-               className="border-amber-600 hover:bg-yellow-400 text-white font-semibold  py-2 my-2 px-16 border   rounded"
+               className="border-amber-600 hover:bg-yellow-400 text-white font-semibold rounded-lg py-4 my-2 px-16 border   rounded"
                type="submit"
            >
              {" "}
