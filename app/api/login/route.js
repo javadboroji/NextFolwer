@@ -5,31 +5,20 @@ import { NextResponse } from "next/server";
 /**============================================
  *               Get give users From json-Server
  *=============================================**/
-export async function POST(req, res) {
-  if(req.method ==='POST'){
+export async function POST(req) {
     try {
       const data = await req.json();
-      const serverUsers=await fetchDataUsers();
-     
-      if (data &&serverUsers) {
-        const usrExact=serverUsers.some((item)=>item.email===data.email && item.password===data.password);
-        console.log(usrExact);
-        if(usrExact){
-          return NextResponse.json({
-            status: 200,
-            message: "Register Sucess",
-            data: null,
-            register: true,
-          });
+      //const usrExact=serverUsers.some((item)=>item.email===data.email && item.password===data.password);
+      if(data.email==='info@gmail.com' && data.password==='123456'){
         
-        }
-        else {
-          return NextResponse.json({ register: false, message: "Register Fail" });
-        }
+         return NextResponse.json({ message: 'sucess',login:true },{status:200});
+          //return NextResponse.redirect('/dashboard')
+      }else{
+        return NextResponse.json({ message: 'ایمیل یا پسورد اشتباه می باشد' ,login:false},{status:401});
       }
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal server error' });
+    }   
+    catch (error) {
+     return NextResponse.json({ error: error },{status:500});
     }
-  }
+  
 }
