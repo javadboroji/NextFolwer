@@ -5,6 +5,7 @@ import img3 from "@/public/3.jpg";
 import img4 from "@/public/4.jpg";
 import img5 from "@/public/5.jpg";
 import img6 from "@/public/6.jpg";
+import connectMongoDB from "@/app/lib/Mongodb";
 const productData = [
     {
       id: "p-1",
@@ -79,6 +80,7 @@ const productData = [
       },
   ];
   export async function GET(req,res){
+    await connectMongoDB();
     return NextResponse.json({productData})
   }
   export async function POST(req,res){

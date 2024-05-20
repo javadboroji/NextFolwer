@@ -22,6 +22,7 @@
     "json-server": "^1.0.0-alpha.23",
     "jss": "^10.10.0",
     "jss-rtl": "^0.3.0",
+    "mongoose": "^8.4.0",
     "next": "14.0.1",
     "next-auth": "^4.24.5",
     "react": "^18",
