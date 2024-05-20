@@ -109,7 +109,7 @@ useEffect(() => {
           <ProductInfo />
         </Grid>
         <Grid item xs={11} lg={10} mt={2}>
-          <UploadImage />
+        
           <ProductInpForm  setRows={setRows} rows={rows}/>
         </Grid>
         <Grid item xs={11} lg={10} minHeight={"20rem"}>

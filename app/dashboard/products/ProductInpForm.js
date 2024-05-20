@@ -3,47 +3,58 @@ import { Button } from "@mui/material";
 import { Form, Formik } from "formik";
 import React, { useState } from "react";
 import uuid4 from "react-uuid";
+import UploadImage from "./UploadImageCs";
 function ProductInpForm({rows ,setRows}) {
  const initialValueCu={
   title: "",
   price: "",
     productCount: "",
  }
-
-
+ const [imageFile, setImageFile] = useState('')
+const ServeActionHandler=async(formData)=>{
+  'use serve '
+  const title = formData.get('title');
+  const price = formData.get('price');
+  const productCount = formData.get('productCount');
+  const image=imageFile
+if(!title||!price||!productCount){
+  return
+}else{
+  
+  console.log(title,price,productCount,image);
+}
+}
   return (
     <div className="flex p-3  justify-center items-baseline flex-wrap ">
-      <Formik initialValues={initialValueCu} onSubmit={(data)=>setRows([...rows,{...data,id:uuid4()}])}>
-        {(props) => 
-          (<Form className="w-full flex-col lg:flex-row items-center flex p-0">
+          <form className="w-full flex-col lg:flex-row items-center flex items-baseline p-0" action={ServeActionHandler}>
+          <UploadImage imageFile={imageFile} setImageFile={setImageFile} />
             <input
+            id="title"
               name="title"
               className="border-2 border-gray-400 p-2  rounded-md m-2 w-full lg:w-1/4"
               placeholder="نام محصول"
-              value={props.values?.productName}
-              onChange={props.handleChange}
+           
             />
             <input
+            id="price"
               name="price"
               className="border-2 border-gray-400 p-2  rounded-md m-2  mx-2w-full lg:w-1/4"
               placeholder="قیمت"
-              value={props.values?.price}
-               onChange={props.handleChange}
+             
             />
             <input
+            id="productCount"
               name="productCount"
               className="border-2 border-gray-400 p-2  rounded-md m-2 w-full lg:w-1/4"
               placeholder="تعداد"
-              value={props.values?.productCount}
-               onChange={props.handleChange}
+          
             />
-            <Button sx={{padding:'0.5rem 0 !important'}} className=" flex-auto lg:w-[10%]" variant="outlined" type="submit">
+            <Button type="submit" sx={{padding:'0.5rem 0 !important'}} className=" flex-auto lg:w-[10%]" variant="outlined">
               {" "}
               ارسال
             </Button>
-          </Form>)
-        }
-      </Formik>
+          </form>
+        
     </div>
   );
 }
